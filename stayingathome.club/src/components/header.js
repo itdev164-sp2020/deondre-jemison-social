@@ -1,6 +1,7 @@
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import {logout} from './utils/auth'
 
 const Header = ({ siteTitle }) => (
   <header
@@ -27,6 +28,25 @@ const Header = ({ siteTitle }) => (
           {siteTitle}
         </Link>
       </h1>
+      <Link style={{color: "white"}} to='/app/profile'>
+        Profile
+        </Link> {" "}
+        - {" "}
+      <Link style={{color: "white"}} to='/app/details'>
+        Details
+        </Link> {" "}
+        - {" "} 
+      <Link style={{color: "white"}} to='/app/app'>
+        App Home
+        </Link> {" "}
+        - {" "}
+      <Link style={{color: "white"}} to='/app/login'>
+        Login
+      </Link> {" "}
+      - {" "}
+
+      <button onClick={() => logout(() => navigate("/app/login"))}>LogOut</button>
+
     </div>
   </header>
 )
